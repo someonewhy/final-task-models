@@ -1,0 +1,26 @@
+<!-- post_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Список постов</h1>
+        <div class="post-list">
+            {% for post in post_list %}
+                <div class="post">
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.pub_date }}</p>
+                    <div class="post-content">
+                        {{ post.content | safe }}
+                    </div>
+                    <p>Likes: {{ post.likes.count }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% if page_obj.has_next %}
+            <div class="pagination">
+                <a href="?page={{ page_obj.next_page_number }}">Показать еще</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

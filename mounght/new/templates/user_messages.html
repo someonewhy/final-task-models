@@ -1,0 +1,15 @@
+<!-- templates/user_messages.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Ваши сообщения</h2>
+  {% for message in messages %}
+    <div>
+      <p>От: {{ message.sender }}</p>
+      <p>Сообщение: {{ message.content }}</p>
+      <p>Дата отправки: {{ message.sent_date }}</p>
+      <p>Пост: {{ message.post }}</p>
+      <hr>
+    </div>
+  {% endfor %}
+{% endblock %}

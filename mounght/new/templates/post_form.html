@@ -1,0 +1,7 @@
+<!-- post_form.html -->
+{% extends 'base.html' %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Создать пост</button>
+</form>
